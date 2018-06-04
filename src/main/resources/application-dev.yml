@@ -1,0 +1,43 @@
+server:
+  port: 8080
+  #context-path: /market
+  tomcat:
+    uri-encoding: UTF-8
+spring: 
+  redis: 
+    # Redis数据库索引（默认为0）
+    database: 0 
+    host: 10.0.2.109
+    port: 32774
+    password: 123456
+    pool: 
+      max-active: 8
+      max-wait: 1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0 
+  mvc:
+    static-path-pattern:  /**
+  resources:
+    static-locations: classpath:/,classpath:/img,classpath:/css
+  datasource:
+    db1:
+      type: com.alibaba.druid.pool.DruidDataSource   
+      url: jdbc:mysql://192.168.1.12:3306/xcard?characterEncoding=UTF-8
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+    db2:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://192.168.1.12:3306/xcard1?characterEncoding=UTF-8
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: com.xyh.game.CustomMysqlDialect 
